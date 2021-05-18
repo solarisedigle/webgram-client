@@ -1,0 +1,20 @@
+.profile-heading{
+    margin-top: 30px;
+}
+.user-pic{
+    width: 100%;
+    border-radius: 100%;
+    border: 1px solid #697075;
+}
+.username{
+    margin: auto 0;
+}
+.user-stat div{
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.user-stat div:hover{
+    background-color: #404345;
+    color: #cfd2d6;
+}

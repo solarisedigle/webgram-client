@@ -4,14 +4,34 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+window.vars = {
+  //host: "https://webgram-api.herokuapp.com/",
+  host: "http://127.0.0.1:3001/",
+}
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
+const $ = window.$;
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+  $(document).on('click', '.copy', function(){
+    let el = $(this)
+    navigator.clipboard.writeText(el.text());
+    el.addClass('bg-success');
+    setTimeout(function(){
+      el.removeClass('bg-success');
+    }, 600);
+  });
+  $(document).on('click', '.tag-autocomplete-item', function(){
+    var ev = new Event('input', { bubbles: true});
+    ev.simulated = true;
+    $('#post-tag').get(0).value = $(this).text() + ' ';
+    $('#post-tag').get(0).dispatchEvent(ev);
+    $('#post-tag').focus();
+  });
+});
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
