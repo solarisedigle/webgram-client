@@ -8,13 +8,17 @@ export default function Header() {
         if(localStorage.getItem('jwt')){
             $.ajax({
                 url: window.vars.host + 'api/v1/getMe',
-                method: 'GET',
+                method: 'POST',
                 async: false,
                 headers: {
                     "Authorization": localStorage.getItem('jwt')
                 },
                 complete: function(data){
                     if (data.status === 200) setUser(JSON.parse(data.responseText));
+                    else if (data.status === 401) {
+                        localStorage.removeItem('jwt');
+                        localStorage.removeItem('user');
+                    }
                 }
             });
         }

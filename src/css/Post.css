@@ -1,0 +1,119 @@
+.post-block-header, .post-block-footer, .post-block-comment-field{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-block-title, .post-block-body{
+    text-align: left;
+}
+.post-block-content{
+    margin: 2px;
+}
+.post-block-body{
+    margin: 0;
+}
+.post-block-content img{
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+}
+.post-block-footer{
+    margin: 10px 3px 0 3px;
+}
+.post-block-comments{
+    padding: 1px 10px;
+    margin-top: 10px;
+    box-shadow: inset 0 0 8px #2b2b2b;
+}
+.post-block-comment-field{
+    margin-top: 10px;
+}
+.post-block-comment-field textarea{
+    margin-right: 10px;
+}
+.post-block .wg-errors-p {
+    line-height: 0.5;
+    text-align: left;
+}
+.comment-add{
+    font-size: 25px;
+    color: rgb(117, 117, 117);
+    cursor: pointer;
+}
+.comment-add:hover{
+    color: #378ad3;
+}
+.author-block{
+    display: flex;
+    width: fit-content;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.author-block img{
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid #697075;
+}
+.author-block div a{
+    font-size: 20px;
+    text-decoration: none;
+}
+.author-block span{
+    margin: 0;
+    color: rgba(255,255,255,.5);
+    font-size: 13px;
+    margin-left: 3px;
+}
+.author-block div{
+    text-align: left;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.comment-block{
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    text-align: left;
+    margin-top: 10px;
+}
+.comment-block img{
+    width: 35px;
+    margin-right: 10px;
+    border-radius: 100%;
+    border: 1px solid #697075;
+}
+.comment-block .comment_text{
+    font-size: 13px;
+    margin: 0;
+}
+.comment-block .comment-author-block span{
+    color: rgba(255,255,255,.5);
+    font-size: 12px;
+}
+.comment-block .reply-butt, .comment-block  .delete-butt, .comment-block  span{
+    color: rgba(255,255,255,.5);
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.comment-block .reply-butt:hover{
+    color: white;
+}
+.comment-block .delete-butt:hover{
+    color: #b24d49;
+}
+.comment-block .comment-content-block{
+    width: 100%;
+}
+.comments-show-more{
+    color: rgba(255,255,255,.5);
+    transition: 0.3s;
+    text-align: center;
+}
+.comments-show-more:hover{
+    color: white;
+    cursor: pointer;
+}

@@ -38,7 +38,7 @@ export default function Profile() {
                         <div className="col-md-8 row minirow user-stat">
                             <h3 className="col-md-12 username">{profile.user.username}</h3>
                             <div className="col-md-3">
-                                <h4 className="wg-p">{profile.posts.length}</h4>
+                                <h4 className="wg-p">{profile.posts}</h4>
                                 <p className="wg-p">posts</p>
                             </div>
                             <div className="col-md-3">
@@ -47,7 +47,7 @@ export default function Profile() {
                             </div>
                             <div className="col-md-3">
                                 <h4 className="wg-p">{profile.subscribers}</h4>
-                                <p className="wg-p">subscribers</p>
+                                <p className="wg-p">followers</p>
                             </div>
                             <div className="col-md-3">
                                 <h4 className="wg-p">{profile.subscriptions}</h4>
@@ -63,7 +63,7 @@ export default function Profile() {
                         ? <PostForm />
                         : null
                     }
-                    <Posts />
+                    <Posts user={profile.user.id}/>
                 </div>
             </Fragment>
         );

@@ -4,6 +4,7 @@ import './css/Login.css'
 export default function Login() {
     const $ = window.$;
     localStorage.removeItem('jwt');
+    localStorage.removeItem('user');
     function handlePasswordConfrirm(){
         let el = $('#password-confrirm');
         if(el.val() === $('#password').val()){
@@ -31,7 +32,9 @@ export default function Login() {
             complete: function(data){
                 switch(data.status){
                     case 200:
-                        localStorage.setItem('jwt', JSON.parse(data.responseText).token);
+                        let info = JSON.parse(data.responseText);
+                        localStorage.setItem('jwt', info.token);
+                        localStorage.setItem('user', JSON.stringify(info.user));
                         window.location.href = '/';
                     break;
                     case 401:

@@ -139,7 +139,7 @@ export default function PostForm() {
                 <div className="col-md-5">
                     <input type="text" onBlur={() => $('#post-tag').popover('hide')} onFocus={autocompleteTags} onInput={tagInputHandler} onKeyPress={handleKeypress} placeholder="Tag (eco, hi-world)" className="wg-input" id="post-tag"/>
                     <p className="wg-errors-p" id="max-tags-error">Maximum 5 tags allowed.</p>
-                    <div id="tags_selected">
+                    <div className="tags_selected">
                         {tags.map((tag, index) => {
                             return <span className="tag-item" onClick={removeTag} data-key={index} key={index}><i className="far fa-times"></i> {tag}</span>
                         })}

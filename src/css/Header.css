@@ -1,7 +1,7 @@
 .navbar{
     background-color: #393939 !important;
     padding: 0;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 8px 0px
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 8px 0px
 }
 .navbar .container{
     padding: 0 10px;

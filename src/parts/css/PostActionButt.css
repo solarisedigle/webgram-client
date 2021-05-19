@@ -1,0 +1,11 @@
+#notify-admin, #delete-post{
+    color: rgba(255,255,255,.5);
+    align-self: flex-start;
+    cursor: pointer;
+}
+#notify-admin:hover{
+    color: #ffc107
+}
+#delete-post:hover{
+    color: #dc3545
+}

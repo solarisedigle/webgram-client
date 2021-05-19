@@ -5,7 +5,7 @@ body {
   background-color: #2d2d2d;
   color: white;
 }
-button{
+button, .hover-text, .transition{
   transition: 0.3s;
 }
 .popover{
@@ -24,6 +24,12 @@ button{
 .popover-body{
   padding: 0;
 }
+.hover-text{
+  color: rgba(224,224,224);
+}
+.hover-text:hover{
+  color: white;
+}
 .wg-pop-item{
   cursor: pointer;
   padding: 3px 8px;
@@ -39,7 +45,7 @@ code {
     monospace;
 }
 .container{
-  max-width: 700px;
+  max-width: 600px;
   margin: auto;
   text-align: center;
 }
@@ -97,6 +103,9 @@ code {
 }
 .wg-button.sm{
   padding: .2em;
+}
+.wg-button.auto-w{
+  width: fit-content;
 }
 .wg-button.reverse{
   background-color: transparent;
@@ -157,4 +166,22 @@ select option {
   color: #e7e8eb;
   background-color: #404345;
   border-radius: 3px;
+}
+.tags_selected{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.tag-item{
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 4px;
+  color: #e7e8eb;
+  background-color: #505050;
+  border-radius: 3px;
+  margin: 2px;
+}
+.tag-item:hover{
+    background-color: #717171;
 }
