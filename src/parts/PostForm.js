@@ -1,5 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import './css/PostForm.css'
+import AutocompleteTags from './functional/AutocompleteTags.js'
+
 export default function PostForm() {
     const $ = window.$;
     const [tags, setTags] = useState([]);
@@ -14,31 +16,7 @@ export default function PostForm() {
             }
         });
     }, []);
-    function autocompleteTags(){
-        $.ajax({
-            url: window.vars.host + 'api/v1/tagsAutocomplete/' + $('#post-tag').val(),
-            method: 'GET',
-            data: {except: tags},
-            complete: function(data){
-                if (data.status === 200) {
-                    let tags = JSON.parse(data.responseText).tags;
-                    let content = '';
-                    for (let i = 0; i < tags.length; i++) {
-                        content += '<div class="wg-pop-item tag-autocomplete-item">' + tags[i].name + '</div>'
-                    }
-                    $('#post-tag').popover('dispose');
-                    if(content === '') return;
-                    $('#post-tag').popover({
-                        html: true,
-                        title: 'Recommended tags',
-                        placement: 'auto',
-                        content: content
-                    });
-                    $('#post-tag').popover('show');
-                }
-            }
-        });
-    }
+    
     function add_tag(tagname){
         if(tags.indexOf(tagname) === -1){
             tags.push(tagname);
@@ -63,7 +41,7 @@ export default function PostForm() {
         else{
             $('#post-tag').val(current_tagname.toLowerCase());
         }
-        autocompleteTags();
+        AutocompleteTags(tags);
     }
     function handleKeypress(e){
         if (e.charCode === 13) {
@@ -107,7 +85,7 @@ export default function PostForm() {
             complete: function(data){
                 if (data.status === 200) window.location.reload();
                 else if (data.status === 401 || data.status === 403) window.location.href="/login";
-                else if(data.status === 422){
+                else if(data.status === 422 || data.status === 413 || data.status === 409){
                     let errors = JSON.parse(data.responseText).errors;
                     let errors_text = '';
                     for (let error in errors) {
@@ -137,7 +115,7 @@ export default function PostForm() {
                     <p className="wg-errors-p" id="publish-errors"></p>
                 </div>
                 <div className="col-md-5">
-                    <input type="text" onBlur={() => $('#post-tag').popover('hide')} onFocus={autocompleteTags} onInput={tagInputHandler} onKeyPress={handleKeypress} placeholder="Tag (eco, hi-world)" className="wg-input" id="post-tag"/>
+                    <input type="text" autoComplete="off" focus-return="yes" onBlur={() => $('#post-tag').popover('hide')} onFocus={() => AutocompleteTags(tags)} onInput={tagInputHandler} onKeyPress={handleKeypress} placeholder="Tag (eco, hi-world)" className="wg-input" id="post-tag"/>
                     <p className="wg-errors-p" id="max-tags-error">Maximum 5 tags allowed.</p>
                     <div className="tags_selected">
                         {tags.map((tag, index) => {

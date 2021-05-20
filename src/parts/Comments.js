@@ -51,6 +51,7 @@ export default function Comments(props) {
     function removeComment(index){
         comments.splice(index, 1);
         setComments(comments.slice());
+        if (props.parentRepliesCountFunc) props.parentRepliesCountFunc(comments.length);
     }
     return (
         <Fragment>

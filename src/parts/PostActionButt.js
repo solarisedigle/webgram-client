@@ -24,8 +24,14 @@ export default function PostActionButt(props) {
             }
         });
     }
-    if(localStorage.getItem('user') && (props.post.user.id === JSON.parse(localStorage.getItem('user')).id || props.post.user.role === 'admin')){
-        return (<i onClick={deletePost} className="fa fa-times" id="delete-post"></i>);
+    if(localStorage.getItem('user')){        
+        let user_viewer = JSON.parse(localStorage.getItem('user'));
+        if(user_viewer && (props.post.user.id === user_viewer.id || user_viewer.role === 'admin'))
+            return (<i onClick={deletePost} className="fa fa-times" id="delete-post"></i>);
+        else
+            return (null);
     }
-    else return /*(<i className="fas fa-exclamation-triangle" id="notify-admin"></i>)*/null;
+    else {
+        return (null);
+    }
 }

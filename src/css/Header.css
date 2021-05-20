@@ -11,10 +11,16 @@
 }
 .nav-item img{
     width: 30px;
-    border: 1px solid white;
+    border: 1px solid #697075;
 }
 .nav-item{
-    margin: auto
+    margin: auto;
+    transition: .3s;
+}
+.nav-item input{
+    padding: 4px 5px;
+    width: 190px;
+    font-size: 12px;
 }
 .nav-item:hover{
     background-color: #404345;

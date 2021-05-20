@@ -26,16 +26,23 @@ export default function Comment(props) {
             }
         });
     }
+    let user_viewer = JSON.parse(localStorage.getItem('user'));
     return (
         <Fragment>
             <div className="comment-block">
                 <a href={'/' + props.data.user.username}><img alt="User" src={'https://avatars.dicebear.com/api/human/' + props.data.user.username + '.svg'} /></a>
                 <div className="comment-content-block">
-                    <Author username={props.data.user.username} time_ago={props.data.created_at} class={'comment-author-block'} />
+                    <Author user={props.data.user} time_ago={props.data.created_at} class={'comment-author-block'} />
                     <p className="comment_text">{props.data.body}</p>
                     <span className="reply-butt" onClick={openReplies}><i className="fas fa-comments"></i> discussion {replies_count > 0 ? '(' + replies_count + ')' : null}</span>
-                    <span> • </span>
-                    <span className="delete-butt" onClick={deleteComment}>delete</span>
+                    {
+                        (user_viewer && (props.data.user.id === user_viewer.id || user_viewer.role === 'admin'))
+                        ? <Fragment>
+                            <span> • </span>
+                            <span className="delete-butt" onClick={deleteComment}>delete</span>
+                        </Fragment>
+                        : null
+                    }
                 </div>
             </div>
             {

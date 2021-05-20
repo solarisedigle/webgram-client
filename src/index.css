@@ -185,3 +185,35 @@ select option {
 .tag-item:hover{
     background-color: #717171;
 }
+.search-block{
+  align-items: flex-end;
+}
+.search-block div{
+  padding: 0;
+  text-align: left;
+}
+.search-block input, .search-block button, .search-block select{
+  height: 43px;
+}
+.s-user-link{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.s-user-link img{
+  width: 25px;
+  margin-right: 5px;
+}
+.s-user-link-a{
+  text-decoration: none !important;
+}
+.adminstar{
+  cursor: pointer;
+  transition: .3s;
+}
+.adminstar.far:hover, .adminstar.fas{
+  color: goldenrod;
+}
+a{
+  text-decoration: none !important;
+}

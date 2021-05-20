@@ -4,7 +4,7 @@ export default function Author(props) {
     return (
         <Fragment>
             <div className={props.class}>
-                <a href={'/' + props.username} className="hover-text">{props.username}</a>
+                <a href={'/' + props.user.username} className="hover-text">{props.user.username} <i className={(props.user.role === 'admin' ? 'fas fa-star adminstar' : '')}></i></a>
                 {props.time_ago? (<span> • <i className="far fa-clock"></i> <ReactTimeAgo date={props.time_ago} locale="en-US"/></span>) : null}
             </div>
         </Fragment>

@@ -10,11 +10,10 @@ export default function Post(props) {
             <div className="post-block-header">
                 <div className="author-block">
                     <a href={'/' + props.post.user.username}><img alt="User" src={'https://avatars.dicebear.com/api/human/' + props.post.user.username + '.svg'} /></a>
-                    <Author username={props.post.user.username} time_ago={props.post.post.created_at}/>
+                    <Author user={props.post.user} time_ago={props.post.post.created_at}/>
                 </div>
                 <PostActionButt post={props.post}/>
             </div>
-            <hr/>
             <div className="post-block-content">
                 <h3 className="post-block-title" dangerouslySetInnerHTML={{__html: props.post.post.title}}></h3>
                 <p className="post-block-body" dangerouslySetInnerHTML={{__html: props.post.post.body}}></p>
@@ -29,6 +28,10 @@ export default function Post(props) {
                     return <span className="tag-item" key={index}>{tag.name}</span>
                 })}
             </div>
+            <div className="delimiter">
+                    <hr/>
+                    <span>{props.post.category}</span>
+                </div>
             <div className="post-block-footer">
                 <Like post={props.post} />
             </div>

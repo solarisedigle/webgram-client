@@ -8,6 +8,7 @@ export default function Like(props) {
         $.ajax({
             url: window.vars.host + 'api/v1/post/' + props.post.post.id + '/like',
             method: 'GET',
+            async: false,
             headers: {
                 "Authorization": localStorage.getItem('jwt')
             },

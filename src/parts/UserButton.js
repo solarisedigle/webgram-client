@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 
 export default function UserButton(props) {
     const [relation, setRelation] = useState(0);
@@ -74,20 +74,33 @@ export default function UserButton(props) {
                 $('button, input').prop('disabled', true);
             },
             complete: function(data){
-                if (data.status === 401 || data.status === 403 || data.status === 200) window.location.href="/login";
+                if (data.status === 401 || data.status === 403 || data.status === 200) window.location.href="/";
                 else document.location.reload();
                 $('.spinner-border').hide();
                 $('button, input').prop('disabled', false);
             }
         });
     }
-    if(relation === 'subscriber'){
-        return (<button className="wg-button reverse sm" onClick={unFollowHandler} id="unfollow"><span className="spinner-border spinner-border-sm"></span> unfollow <i className="fa fa-user-times"></i></button>)
+    function DeleteButton(){
+        if(relation === 'owner' || (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).role === 'admin')){
+            return <button className="wg-button danger sm" onClick={deleteAccount} id="delete"><span className="spinner-border spinner-border-sm"></span> delete account <i className="fa fa-user-times"></i></button>
+        }
+        else return null;
     }
-    else if(relation === 'owner'){
-        return (<button className="wg-button danger sm" onClick={deleteAccount} id="delete"><span className="spinner-border spinner-border-sm"></span> delete account <i className="fa fa-user-times"></i></button>)
+    function ActionButton(){
+        if(relation === 'subscriber'){
+            return <button className="wg-button reverse sm mt-2" onClick={unFollowHandler} id="unfollow"><span className="spinner-border spinner-border-sm"></span> unfollow <i className="fa fa-user-times"></i></button>
+        }
+        else if (relation !== 'owner'){
+            return <button className="wg-button sm mt-2" onClick={followHandler} id="follow"><span className="spinner-border spinner-border-sm"></span> follow <i className="fa fa-user-plus"></i></button>
+        }
+        else{
+            return null;
+        }
     }
-    else{
-        return (<button className="wg-button sm" onClick={followHandler} id="follow"><span className="spinner-border spinner-border-sm"></span> follow <i className="fa fa-user-plus"></i></button>)
-    }
+    return <Fragment>
+        <DeleteButton />
+        <ActionButton />
+    </Fragment>
+    
 }

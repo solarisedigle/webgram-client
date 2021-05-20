@@ -9,6 +9,18 @@
 .post-block-content{
     margin: 2px;
 }
+.post-block .tags_selected{
+    max-width: 50%;
+}
+@media screen and (max-width: 500px) {
+    .post-block .tags_selected{
+        max-width: 100%;
+    }  
+}
+.post-block-title{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
 .post-block-body{
     margin: 0;
 }
@@ -18,7 +30,7 @@
     margin: 10px auto;
 }
 .post-block-footer{
-    margin: 10px 3px 0 3px;
+    margin: 0px 3px 0 3px;
 }
 .post-block-comments{
     padding: 1px 10px;
@@ -116,4 +128,75 @@
 .comments-show-more:hover{
     color: white;
     cursor: pointer;
+}
+.wg-pagination-block{
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wg-page-button{
+    transition: 0.3s;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0 6px;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid #697075;
+    font-size: 12px;
+    line-height: 1.92307692;
+    color: rgba(255,255,255,.5);
+}
+.wg-page-button:hover{
+    background-color: #3ca4ff;
+    color: white;
+    border-color: #3ca4ff;
+}
+.wg-page-button:active{
+    background-color: #81c4f8;
+    border-color: #81c4f8;
+}
+.wg-page-button.active{
+    background-color: #378ad3;
+    color: white;
+    border-color: #378ad3;
+}
+.hidden_pages{
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0 4px;
+    font-size: 10px;
+    width: fit-content;
+    color: rgba(255,255,255,.5);
+    line-height: 2;
+}
+.hidden_pages span{
+    white-space: nowrap;
+}
+.wg-limit-button{
+    font-size: 11px;
+    padding: 0 4px;
+    white-space: nowrap;
+}
+.wg-perpage{
+    justify-content: flex-start;
+}
+.delimiter{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.delimiter hr{
+    width: 100%;
+    margin: 10px 0;
+}
+.delimiter span{
+    margin-left: 5px;
+    color: rgba(255,255,255,.5);
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.delimiter span:hover{
+    color: white;
 }
