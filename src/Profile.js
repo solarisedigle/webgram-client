@@ -43,6 +43,35 @@ export default function Profile() {
             });
         }
     }
+    function saveDescription(){
+        $.ajax({
+            url: window.vars.host + 'api/v1/user/description',
+            method: 'POST',
+            headers: localStorage.getItem('jwt') ? {
+                "Authorization": localStorage.getItem('jwt')
+            } : null,
+            data: {
+                description: $('#user-description').val().trim()
+            },
+            beforeSend: function(){
+                $('#user-description').removeClass('error');
+                $("#save-span").hide();
+            },
+            complete: function(data){
+                if (data.status === 200) {
+                    $('#user-description').addClass('success');
+                    setTimeout(function(){
+                        $('#user-description').removeClass('success');
+                    }, 800);
+                }
+                else if (data.status === 401 || data.status === 403) window.location.href = "/login";
+                else{
+                    $('#user-description').addClass('error');
+                    $("#save-span").show();
+                }
+            }
+        });
+    }
     if(profile){
         return (
             <Fragment>
@@ -77,6 +106,20 @@ export default function Profile() {
                             <span className="col-md-6">
                                 <UserButton user={profile.user}/>
                             </span>
+                        </div>
+                        <div className="col-md-12 user-description">
+                            {
+                                (user_viewer && user_viewer.id === profile.user.id)
+                                ? <Fragment>
+                                    <textarea rows="2" onInput={() => {$('#save-span').css('display', 'block')}} className="wg-input mt-2" placeholder="Your description..." id="user-description">{profile.user.description}</textarea>
+                                    <span id="save-span" onClick={saveDescription} className="hover-text"><i className="fas fa-save"></i> save</span>
+                                  </Fragment>
+                                : (
+                                    (profile.user.description.trim() !== '')
+                                    ? <h6 className="user-desc">{profile.user.description}</h6>
+                                    : null
+                                )
+                            }
                         </div>
                     </div>
                     {

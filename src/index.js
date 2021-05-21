@@ -9,8 +9,8 @@ import en from 'javascript-time-ago/locale/en'
 TimeAgo.addDefaultLocale(en)
 
 window.vars = {
-  host: "https://webgram-api.herokuapp.com/",
-  //host: "http://127.0.0.1:3001/",
+  //host: "https://webgram-api.herokuapp.com/",
+  host: "http://127.0.0.1:3001/",
 }
 ReactDOM.render(
   <React.StrictMode>

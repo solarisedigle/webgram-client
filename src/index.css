@@ -5,7 +5,7 @@ body {
   background-color: #2d2d2d;
   color: white;
 }
-button, .hover-text, .transition{
+button, .hover-text, .transition, .wg-input{
   transition: 0.3s;
 }
 .popover{

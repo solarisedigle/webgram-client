@@ -25,7 +25,7 @@ export default function Post(props) {
             </div>
             <div className="tags_selected">
                 {props.post.tags.map((tag, index) => {
-                    return <a href={"/?tag=" + tag.name}><span className="tag-item" key={index}>{tag.name}</span></a>
+                    return <a href={"/?tag=" + tag.name}  key={index}><span className="tag-item">{tag.name}</span></a>
                 })}
             </div>
             <div className="delimiter">
