@@ -100,6 +100,7 @@
 .comment-block .comment_text{
     font-size: 13px;
     margin: 0;
+    word-break: break-word;
 }
 .comment-block .comment-author-block span{
     color: rgba(255,255,255,.5);
