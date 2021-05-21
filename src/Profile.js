@@ -82,7 +82,7 @@ export default function Profile() {
                             <img className="user-pic" alt="User" src={'https://avatars.dicebear.com/api/human/' + profile.user.username + '.svg'} />
                         </div>
                         <div className="col-md-8 row minirow user-stat">
-                            <h3 className="col-md-12 username">{profile.user.username} <i 
+                                <h3 className="col-md-12 username">{profile.user.username} <i 
                                     onClick={adminPromote} 
                                     className={(profile.user.role === 'admin' ? 'fas fa-star adminstar' : ((user_viewer && user_viewer.role === 'admin') ? 'far fa-star adminstar' : ''))}>
                                 </i>
@@ -115,7 +115,7 @@ export default function Profile() {
                                     <span id="save-span" onClick={saveDescription} className="hover-text"><i className="fas fa-save"></i> save</span>
                                   </Fragment>
                                 : (
-                                    (profile.user.description.trim() !== '')
+                                    (profile.user.description && profile.user.description.trim() !== '')
                                     ? <h6 className="user-desc">{profile.user.description}</h6>
                                     : null
                                 )
