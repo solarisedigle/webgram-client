@@ -43,7 +43,7 @@ export default function CommentModal(props) {
                             <a href={'/' + props.comment.user.username}><img alt="User" src={'https://avatars.dicebear.com/api/human/' + props.comment.user.username + '.svg'} /></a>
                             <div>
                                 <div className="comment-author-name">
-                                    <Author username={props.comment.user.username} time_ago={props.comment.created_at}/>
+                                    <Author user={props.comment.user} time_ago={props.comment.created_at}/>
                                 </div>
                                 <p>{props.comment.body}</p>
                             </div>

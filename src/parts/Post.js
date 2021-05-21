@@ -25,12 +25,12 @@ export default function Post(props) {
             </div>
             <div className="tags_selected">
                 {props.post.tags.map((tag, index) => {
-                    return <span className="tag-item" key={index}>{tag.name}</span>
+                    return <a href={"/?tag=" + tag.name}><span className="tag-item" key={index}>{tag.name}</span></a>
                 })}
             </div>
             <div className="delimiter">
                     <hr/>
-                    <span>{props.post.category}</span>
+                    <a href={"/?category=" + props.post.category.id}><span>{props.post.category.name}</span></a>
                 </div>
             <div className="post-block-footer">
                 <Like post={props.post} />

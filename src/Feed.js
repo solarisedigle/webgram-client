@@ -24,7 +24,7 @@ export default function Feed(props) {
     }, []);
     function applyFilter(){
         let new_filter = {
-            tag: $('#post-tag').val(),
+            tag: $('#post-tag').val().trim(),
             category: +$('#search-post-category').val() !== '' ? $('#search-post-category').val() : null,
             only_subscriptions: $('#search-all').val(),
             text: $('#search-text').val().trim()

@@ -39,6 +39,7 @@ export default function Comments(props) {
                 }
                 else if (data.status === 401 || data.status === 403) window.location.href="/login";
                 else window.location.reload();
+                $('button, input').prop('disabled', false);
                 $(e.target).parent().find('.spinner-border').hide();
                 $('#comment-field-' + props.post.post.id + 'p' + props.parent).val('');
                 $(e.target).show();
