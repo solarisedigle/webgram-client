@@ -1,0 +1,22 @@
+.like{
+    font-size: 25px;
+    cursor: pointer;
+    color: rgba(224,224,224);
+}
+.unliked:hover{
+    color: #dc3545;
+}
+.liked{
+    color: #dc3545;
+}
+.liked:hover{
+    color: rgba(224,224,224);
+}
+.like-block{
+    display: flex;
+    align-items: center;
+}
+.like-block span{
+    margin-left: 5px;
+    color: rgba(255,255,255,.5);
+}

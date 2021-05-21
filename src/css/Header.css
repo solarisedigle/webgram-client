@@ -1,0 +1,28 @@
+.navbar{
+    background-color: #393939 !important;
+    padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 8px 0px
+}
+.navbar .container{
+    padding: 0 10px;
+}
+.navbar-brand img{
+    width: 40px;
+}
+.nav-item img{
+    width: 30px;
+    border: 1px solid #697075;
+}
+.nav-item{
+    margin: auto;
+    transition: .3s;
+}
+.nav-item input{
+    padding: 4px 5px;
+    width: 190px;
+    font-size: 12px;
+}
+.nav-item:hover{
+    background-color: #404345;
+    color: #cfd2d6
+}

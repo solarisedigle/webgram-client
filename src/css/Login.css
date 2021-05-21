@@ -1,0 +1,26 @@
+.login-form{
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+.login-form .wg-input{
+    width: 100%;
+    font-size: 15px;
+    margin: 5px 0;
+}
+.login-form .wg-button{
+    width: 100%;
+    font-size: 15px;
+    margin: 5px 0;
+}
+.wg-errors-p{
+    font-size: 12px;
+}
+#activate-text{
+    display: none;
+    text-align: left;
+}
+#activate-text h5{
+    text-align: center;
+}
