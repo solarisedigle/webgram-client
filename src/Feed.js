@@ -61,7 +61,7 @@ export default function Feed(props) {
                     </div>
                     <div className="col-md-4 pr-2">
                         <h5>Tag:</h5>
-                        <input id="post-tag" autoComplete="off" onBlur={() => $('#post-tag').popover('hide')} onFocus={() => AutocompleteTags([])} onInput={tagInputHandler} type="text" className="wg-input col-md-12" defaultValue={filter.tag ? filter.tag : ''} placeholder="hello-world"/>
+                        <input id="post-tag" maxLength="50" autoComplete="off" onBlur={() => $('#post-tag').popover('hide')} onFocus={() => AutocompleteTags([])} onInput={tagInputHandler} type="text" className="wg-input col-md-12" defaultValue={filter.tag ? filter.tag : ''} placeholder="hello-world"/>
                     </div>
                     <button onClick={applyFilter} className="wg-button col-md-4">Search</button>
                     <div className="col-md-7 mt-2 pr-2">
