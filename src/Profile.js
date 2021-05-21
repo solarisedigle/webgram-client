@@ -29,7 +29,7 @@ export default function Profile() {
         });
     }, [username]);
     function adminPromote(){
-        if(profile.user.role === 'user' && user_viewer.role === 'admin'){
+        if(user_viewer && (profile.user.role === 'user' && user_viewer.role === 'admin')){
             if(prompt('Please enter ' + profile.user.username + ' to confrirm promoting this user to Admin') !== profile.user.username) return;
             $.ajax({
                 url: window.vars.host + 'api/v1/user/' + profile.user.id + '/promote',
@@ -55,7 +55,7 @@ export default function Profile() {
                         <div className="col-md-8 row minirow user-stat">
                             <h3 className="col-md-12 username">{profile.user.username} <i 
                                     onClick={adminPromote} 
-                                    className={(profile.user.role === 'admin' ? 'fas fa-star adminstar' : (user_viewer.role === 'admin' ? 'far fa-star adminstar' : ''))}>
+                                    className={(profile.user.role === 'admin' ? 'fas fa-star adminstar' : ((user_viewer && user_viewer.role === 'admin') ? 'far fa-star adminstar' : ''))}>
                                 </i>
                             </h3>
                             <div className="col-md-3">
