@@ -48,7 +48,7 @@ export default function CommentModal(props) {
                                 <p>{props.comment.body}</p>
                             </div>
                         </div>
-                        <div>
+                        <div className="modal_action">
                             {
                                 props.parentModalShow
                                 ? (<i className="fas fa-level-up-alt" onClick={close_me}></i>)
