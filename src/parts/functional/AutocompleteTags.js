@@ -9,7 +9,7 @@ export default function AutocompleteTags(except){
                 let tags = JSON.parse(data.responseText).tags;
                 let content = '';
                 for (let i = 0; i < tags.length; i++) {
-                    content += '<div class="wg-pop-item tag-autocomplete-item">' + tags[i].name + '</div>'
+                    content += '<div class="wg-pop-item tag-autocomplete-item"><span class="data">' + tags[i].name + '</span> (' + tags[i].uses + ')</div>'
                 }
                 $('#post-tag').popover('dispose');
                 if(content === '') return;

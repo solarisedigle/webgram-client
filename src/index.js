@@ -32,7 +32,7 @@ $(document).ready(function(){
   $(document).on('click', '.tag-autocomplete-item', function(){
     var ev = new Event('input', { bubbles: true});
     ev.simulated = true;
-    $('#post-tag').get(0).value = $(this).text() + ' ';
+    $('#post-tag').get(0).value = $(this).find('.data').text() + ' ';
     if($('#post-tag').get(0).hasAttribute('focus-return')){
       $('#post-tag').get(0).dispatchEvent(ev);
       $('#post-tag').focus();
