@@ -70,7 +70,7 @@ export default function Posts(props) {
                     >
                         <i className="fas fa-history"></i> Recent {
                             order_type === "created_at"
-                            ? <i class={"fas fa-sort-amount-" + (order_direction === 'DESC' ? 'down' : 'up')}></i>
+                            ? <i className={"fas fa-sort-amount-" + (order_direction === 'DESC' ? 'down' : 'up')}></i>
                             : null
                         }
                 </button>
@@ -82,7 +82,7 @@ export default function Posts(props) {
                     >
                         <i className="fas fa-heart"></i> Popular {
                             order_type === "count_of_likes"
-                            ? <i class={"fas fa-sort-amount-" + (order_direction === 'DESC' ? 'down' : 'up')}></i>
+                            ? <i className={"fas fa-sort-amount-" + (order_direction === 'DESC' ? 'down' : 'up')}></i>
                             : null
                         }
                 </button>
