@@ -212,7 +212,7 @@ select option {
   transition: .3s;
 }
 .adminstar.far:hover, .adminstar.fas{
-  color: goldenrod;
+  color: goldenrod !important;
 }
 a{
   text-decoration: none !important;
