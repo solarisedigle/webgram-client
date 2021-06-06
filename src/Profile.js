@@ -116,7 +116,7 @@ export default function Profile() {
                                   </Fragment>
                                 : (
                                     (profile.user.description && profile.user.description.trim() !== '')
-                                    ? <h6 className="user-desc">{profile.user.description}</h6>
+                                    ? <h6 className="user-desc" dangerouslySetInnerHTML={{__html: profile.user.description?.replace(/(?:\r\n|\r|\n)/g, '<br>')}}></h6>
                                     : null
                                 )
                             }
